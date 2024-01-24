@@ -1,12 +1,9 @@
 <template>
   <div>
-    <h1>Hellow {{ animal }}</h1>
-    <h2>{{ animal }} like {{ food }}.</h2>
-    <input type="text" v-model="food" />
-    <img v-bind:src="imageSource" alt="vue" />
-    <a :href="googleUrl">Google</a>
-    <hr />
-    <h2 v-bind:class="{red: food==='banana', 'not-good': food==='rice'}">{{ animal }} like {{ food }}!</h2>
+    <h2>당신의 나이는 {{ age }}입니다.</h2>
+    <h3 v-if="age > 18">당신은 어른입니다.</h3>
+    <h3 v-else-if="age > 13 && age <= 18">당신은 청소년입니다.</h3>
+    <h3 v-else>당신은 어린이입니다.</h3>
   </div>
 </template>
 
@@ -16,10 +13,7 @@ export default {
   name: 'App',
   data() {
     return {
-      animal: "Monkey",
-      food: "banana",
-      imageSource: "https://www.vuemastery.com/_nuxt/image/d26370.svg",
-      googleUrl: "https://www.google.com/",
+      age: 12,
     }
   }
 }
