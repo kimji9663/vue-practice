@@ -1,22 +1,29 @@
 <template>
   <div>
-    <h2>당신의 나이는 {{ age }}입니다.</h2>
-    <h3 v-if="age > 18">당신은 어른입니다.</h3>
-    <h3 v-else-if="age > 13 && age <= 18">당신은 청소년입니다.</h3>
-    <h3 v-else>당신은 어린이입니다.</h3>
+    <h2 v-for="(animal, index) in animals" :key="index">{{ animal }}, index: {{ index }}</h2>
+    <ul>
+      <li v-for="(user, index) in users" :key="index">
+        {{ user.gender==='female' ? 'Her' : 'His'}} name is {{ user.name }},
+        {{ user.gender==='female' ? 'Her' : 'His'}} job is {{ user.job }}.
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-
-export default {
-  name: 'App',
-  data() {
-    return {
-      age: 12,
+  export default {
+    name: 'App',
+    data() {
+      return {
+        animals: ['monkey', 'rat', 'cat', 'lion'],
+        users: [
+          { name: 'ciala', job: 'developer', gender: 'female'},
+          { name: 'john', job: 'designer', gender: 'male'},
+          { name: 'colin', job: 'product manager', gender: 'male'},
+        ]
+      }
     }
   }
-}
 </script>
 
 <style>
