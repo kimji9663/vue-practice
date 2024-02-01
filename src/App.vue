@@ -1,12 +1,9 @@
 <template>
   <div>
-    <h2 v-for="(animal, index) in animals" :key="index">{{ animal }}, index: {{ index }}</h2>
-    <ul>
-      <li v-for="(user, index) in users" :key="index">
-        {{ user.gender==='female' ? 'Her' : 'His'}} name is {{ user.name }},
-        {{ user.gender==='female' ? 'Her' : 'His'}} job is {{ user.job }}.
-      </li>
-    </ul>
+    <h1>{{count + 3}}</h1>
+    <button v-on:click="addNumber(1)">증가</button>
+    <button v-on:click="addNumber(-1)">감소</button>
+    <button v-on:mouseover="addNumber(10)">마우스오버 10 증가</button>
   </div>
 </template>
 
@@ -15,15 +12,15 @@
     name: 'App',
     data() {
       return {
-        animals: ['monkey', 'rat', 'cat', 'lion'],
-        users: [
-          { name: 'ciala', job: 'developer', gender: 'female'},
-          { name: 'john', job: 'designer', gender: 'male'},
-          { name: 'colin', job: 'product manager', gender: 'male'},
-        ]
-      }
-    }
-  }
+        count: 0,
+      };
+    },
+    methods: {
+      addNumber(value){
+        this.count = this.count + value;
+      },
+    },
+  };
 </script>
 
 <style>
