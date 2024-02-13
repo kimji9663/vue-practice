@@ -1,25 +1,14 @@
 <template>
-  <div>
-    <h1>{{count + 3}}</h1>
-    <button v-on:click="addNumber(1)">증가</button>
-    <button v-on:click="addNumber(-1)">감소</button>
-    <button v-on:mouseover="addNumber(10)">마우스오버 10 증가</button>
-  </div>
+  <AppHeader></AppHeader>
+  <router-view></router-view>
 </template>
 
 <script>
+  import AppHeader from '@/components/common/AppHeader.vue'
   export default {
-    name: 'App',
-    data() {
-      return {
-        count: 0,
-      };
-    },
-    methods: {
-      addNumber(value){
-        this.count = this.count + value;
-      },
-    },
+    components: {
+      AppHeader,
+    }
   };
 </script>
 
@@ -31,11 +20,5 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.red {
-  color: #ff0000;
-}
-.not-good {
-  text-decoration: line-through;
 }
 </style>
