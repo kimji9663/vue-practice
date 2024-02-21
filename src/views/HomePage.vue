@@ -1,8 +1,9 @@
 <template>
   <div>
-    login
+    Home
   </div>
 </template>
-
+  
 <script>
 </script>
+  
